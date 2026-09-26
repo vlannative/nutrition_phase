@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shemomo Nutrition — Practical nutrition support in Nairobi</title>
+<meta name="description" content="1:1 nutrition consultations, personalised meal planning and goal-specific programs with Shemomo Nutrition, Nairobi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Shemomo Nutrition</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="23" y2="7"/><line x1="3" y1="13" x2="23" y2="13"/><line x1="3" y1="19" x2="23" y2="19"/></svg>
+    </button>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="learn.html">Recipes/Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="contact.html">Book a Consultation</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1>Nutrition support that fits your actual life, not a generic plan.</h1>
+        <p class="lead">Shemomo Nutrition helps busy people in Nairobi build sustainable eating habits through 1:1 consultations and personalised meal plans — no extreme diets, no guesswork.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="contact.html">Book a Consultation</a>
+          <a class="btn btn-secondary" href="#goal-quiz" style="border-color:var(--paper); color:var(--paper);">Take the 60-second goal quiz</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <span class="stat">1:1</span>
+        <p style="color:var(--sage); margin-bottom:0;">Every plan starts with a real conversation, not a form.</p>
+        <ul>
+          <li>Registered nutrition practitioner</li>
+          <li>Plans built around your budget and schedule</li>
+          <li>Follow-up support, not a one-off PDF</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Where to start</h2>
+        <p>Three ways to work together, depending on how much structure you need.</p>
+      </div>
+      <div class="grid-3">
+        <div class="feature-card">
+          <h3>1:1 Consultation</h3>
+          <p>A full session to understand your history, goals and constraints, and leave with a clear next step.</p>
+          <span class="price">From KES 3,500</span>
+          <a class="btn btn-secondary btn-block" style="margin-top:1rem;" href="services.html#one-to-one">See details</a>
+        </div>
+        <div class="feature-card">
+          <h3>Personalised Meal Planning</h3>
+          <p>A structured weekly plan built around food you'll actually cook, with swaps for real-world days.</p>
+          <span class="price">From KES 6,000</span>
+          <a class="btn btn-secondary btn-block" style="margin-top:1rem;" href="services.html#meal-planning">See details</a>
+        </div>
+        <div class="feature-card">
+          <h3>Gut Health Program</h3>
+          <p>A 6-week guided program for people dealing with bloating, irregularity or food-trigger confusion.</p>
+          <span class="price">From KES 15,000</span>
+          <a class="btn btn-secondary btn-block" style="margin-top:1rem;" href="programs.html#gut-health">See details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="goal-quiz-section">
+    <div class="container">
+      <div class="grid-2" style="align-items:start;">
+        <div>
+          <h2>Not sure where to start?</h2>
+          <p>Answer three quick questions and get pointed to the right service — no email required, nothing saved.</p>
+        </div>
+        <div class="quiz-box" id="goal-quiz">
+          <p class="quiz-progress"></p>
+
+          <div class="quiz-step" data-key="goal">
+            <h3>What's the main thing you want help with?</h3>
+            <div class="quiz-options">
+              <button type="button" data-value="weight">Managing my weight</button>
+              <button type="button" data-value="gut">Digestion / gut issues</button>
+              <button type="button" data-value="other">Something else / not sure yet</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-key="support">
+            <h3>How much ongoing support do you want?</h3>
+            <div class="quiz-options">
+              <button type="button" data-value="one-off">Just one session for now</button>
+              <button type="button" data-value="ongoing">Regular check-ins over a few weeks</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-key="timeline">
+            <h3>How soon do you want to start?</h3>
+            <div class="quiz-options">
+              <button type="button" data-value="asap">As soon as possible</button>
+              <button type="button" data-value="exploring">Just exploring for now</button>
+            </div>
+          </div>
+
+          <div class="quiz-step quiz-result">
+            <h3>Result</h3>
+            <p></p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="services.html">See recommendation</a>
+              <button type="button" class="btn btn-secondary" data-quiz-restart>Start over</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What clients say</h2>
+      </div>
+      <div class="grid-2">
+        <div>
+          <div class="testimonial">
+            <p class="quote">"I stopped thinking of food as a problem to solve every day. The plan actually matched how I cook."</p>
+            <p class="attribution">— Njeri, Nairobi</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">"First nutritionist who asked about my work schedule before giving me a meal plan."</p>
+            <p class="attribution">— Kevin, Kilimani</p>
+          </div>
+        </div>
+        <div>
+          <div class="testimonial">
+            <p class="quote">"My bloating improved within the first two weeks of the gut health program."</p>
+            <p class="attribution">— Achieng, Lavington</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">"Realistic advice, no shame, no supplements I didn't need. Exactly what I wanted."</p>
+            <p class="attribution">— Wambui, Westlands</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="container">
+      <ul>
+        <li>Registered Nutritionist<br>(replace with real credential)</li>
+        <li>Certified in Clinical Nutrition<br>(replace with real credential)</li>
+        <li>5+ years client experience<br>(replace with real detail)</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="tight" id="newsletter">
+    <div class="container" style="max-width:640px; text-align:center;">
+      <h2>One useful nutrition tip a week</h2>
+      <p style="margin:0 auto var(--space-2);">No spam, unsubscribe anytime. Placeholder form — connect a real provider before launch.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <label class="visually-hidden" for="newsletter-email">Email address</label>
+        <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="form-msg form-note" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<a class="whatsapp-float" href="https://wa.me/254700000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2c2.3 1.3 4.9 2 7.7 2 8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.9 1.3 1.3-4.8-.3-.5C3.2 21 2.6 18.5 2.6 16 2.6 8.6 8.6 2.6 16 2.6S29.4 8.6 29.4 16 23.4 29.3 16 29.3zm7.6-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.2-2.2-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.9c.2.2 2.6 4 6.4 5.5.9.4 1.6.6 2.1.7.9.3 1.7.2 2.4.1.7-.1 2.2-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Shemomo Nutrition</h4>
+        <p style="color:var(--sage);">Nairobi, Kenya. Practical, judgement-free nutrition support — in person and online.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="learn.html">Recipes/Blog</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="disclaimer.html">Nutrition Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Shemomo Nutrition. All rights reserved.</span>
+      <span><a href="contact.html">hello@shemomonutrition.com</a> · <a href="https://wa.me/254700000000">WhatsApp</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
