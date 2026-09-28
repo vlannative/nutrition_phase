@@ -35,6 +35,19 @@ Search the project for these and swap in real content:
 - **Legal pages**: `privacy.html`, `terms.html`, `disclaimer.html` are structurally complete but contain placeholder clauses — **have an actual lawyer review these before going live**, especially around Kenya's Data Protection Act, 2019, and any health-advice liability language.
 - **Testimonials**: in `index.html` — currently invented examples, replace with real (consented) quotes.
 
+## Adding your YouTube videos
+
+Videos appear in two places: a "Watch and learn" strip on the Home page and a "Videos" section at the bottom of `learn.html`. They are click-to-load, so YouTube only loads when someone presses play (faster page, fewer cookies).
+
+For each video:
+
+1. Open the video on YouTube and copy the 11-character ID from the address, e.g. `youtube.com/watch?v=`**`dQw4w9WgXcQ`**.
+2. In `index.html` and `learn.html`, replace `REPLACE_ID_1`, `REPLACE_ID_2`, `REPLACE_ID_3` in the `data-video-id` attributes with your real IDs. Thumbnails appear automatically once the ID is real.
+3. Update the video titles (the `<h3>` and the `aria-label`) to match.
+4. Replace `@REPLACE_CHANNEL` in both "Watch more on YouTube" links with your channel handle, e.g. `https://www.youtube.com/@yourhandle`.
+
+To show more or fewer videos, copy or delete a `<div class="video-card">` block. Only embed videos you own or have permission to use.
+
 ## Things that need a real backend before launch
 
 This is a static site, so anything that "submits" data needs a third-party service wired in:

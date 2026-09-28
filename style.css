@@ -432,3 +432,42 @@ footer.site-footer a { color: var(--paper); }
   white-space: nowrap;
 }
 .overflow-x { overflow-x: auto; }
+
+/* ---- Videos (click-to-load YouTube) ---- */
+.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+@media (max-width: 780px) { .video-grid { grid-template-columns: 1fr; } }
+.video-card { display: flex; flex-direction: column; }
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--moss-dark) center / cover no-repeat;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.video-frame button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(27, 43, 34, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-frame button:hover { background: rgba(27, 43, 34, 0.2); }
+.video-frame .play {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-frame .play svg { margin-left: 3px; }
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card h3 { font-size: 1.05rem; margin: var(--space-1) 0 0; }
+.video-more { margin-top: var(--space-3); }

@@ -46,7 +46,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ---- Lightweight goal quiz (client-side only, no data stored) ----
   initQuiz();
+
+  // ---- YouTube click-to-load videos ----
+  initVideos();
 });
+
+// A real YouTube ID is 11 characters (letters, numbers, - and _).
+// Anything else (e.g. REPLACE_ID_1) is treated as a placeholder and does nothing.
+function initVideos() {
+  document.querySelectorAll('.video-frame[data-video-id]').forEach(function (frame) {
+    var id = frame.getAttribute('data-video-id');
+    var isReal = /^[A-Za-z0-9_-]{11}$/.test(id) && id.indexOf('REPLACE') !== 0;
+    var btn = frame.querySelector('button');
+    if (!isReal || !btn) return;
+
+    frame.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+
+    btn.addEventListener('click', function () {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = btn.getAttribute('aria-label') || 'YouTube video';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+    });
+  });
+}
 
 function initQuiz() {
   var quiz = document.getElementById('goal-quiz');
