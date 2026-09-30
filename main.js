@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', function () {
     toggle.addEventListener('click', function () {
       var isOpen = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      });
     });
   }
 
@@ -78,27 +86,13 @@ function initQuiz() {
   var quiz = document.getElementById('goal-quiz');
   if (!quiz) return;
 
+  var ORDER = ['goal', 'support', 'timeline'];
   var steps = Array.prototype.slice.call(quiz.querySelectorAll('.quiz-step'));
   var progress = quiz.querySelector('.quiz-progress');
-  var answers = {};
-
-  var results = {
-    weight: {
-      title: 'A good fit: Weight Management',
-      body: 'Based on your answers, the Weight Management program is the most direct starting point — it pairs a personalised plan with regular check-ins to keep changes realistic and sustainable.',
-      cta: 'programs.html#weight-management'
-    },
-    gut: {
-      title: 'A good fit: Gut Health Reset',
-      body: 'Based on your answers, the Gut Health program is the best starting point — it looks at digestion, food triggers and daily habits before anything else.',
-      cta: 'programs.html#gut-health'
-    },
-    general: {
-      title: 'A good fit: 1:1 Consultation',
-      body: 'Your answers point to something more individual than a set program. A first 1:1 Consultation is the right next step so we can map out what actually fits your goals.',
-      cta: 'services.html#one-to-one'
-    }
-  };
+  var resultStep = quiz.querySelector('.quiz-result');
+  var resultMsgEl = resultStep ? resultStep.querySelector('.quiz-result-msg') : null;
+  var resultCta = resultStep ? resultStep.querySelector('a.btn') : null;
+  var answerLabels = {};
 
   function showStep(index) {
     steps.forEach(function (step, i) {
@@ -112,11 +106,47 @@ function initQuiz() {
     }
   }
 
-  quiz.querySelectorAll('.quiz-options button').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var step = btn.closest('.quiz-step');
+  function resetQuiz() {
+    answerLabels = {};
+    if (resultMsgEl) resultMsgEl.textContent = '';
+    if (resultCta) resultCta.removeAttribute('href');
+    showStep(0);
+  }
+
+  function renderResult() {
+    if (!resultStep) return;
+
+    // Builds e.g. "1. What's the main thing you want help with? — Digestion / gut issues"
+    // for each question, so the WhatsApp message shows the question next to the answer
+    // instead of just a bare list of answers.
+    var lines = ORDER.map(function (key, i) {
+      var step = quiz.querySelector('.quiz-step[data-key="' + key + '"]');
+      var qEl = step ? step.querySelector('.quiz-question') : null;
+      var question = qEl ? qEl.textContent.trim() : '';
+      return (i + 1) + '. ' + question + ' \u2014 ' + (answerLabels[key] || '');
+    });
+    var summary = lines.join('\n');
+
+    if (resultMsgEl) resultMsgEl.textContent = summary;
+
+    var floatBtn = document.querySelector('.whatsapp-float');
+    var base = floatBtn ? floatBtn.getAttribute('href').split('?')[0] : 'https://wa.me/254700000000';
+    var waMessage = summary + '\n\nI\'d like to book a consultation.';
+
+    if (resultCta) {
+      resultCta.setAttribute('href', base + '?text=' + encodeURIComponent(waMessage));
+    }
+  }
+
+  // Event delegation: one listener on the quiz box handles every answer
+  // button and the restart button, so nothing can end up unbound (or
+  // bound twice) even if this script ever runs more than once on a page.
+  quiz.addEventListener('click', function (e) {
+    var optionBtn = e.target.closest('.quiz-options button');
+    if (optionBtn) {
+      var step = optionBtn.closest('.quiz-step');
       var key = step.getAttribute('data-key');
-      answers[key] = btn.getAttribute('data-value');
+      answerLabels[key] = optionBtn.textContent.trim();
 
       var currentIndex = steps.indexOf(step);
       var nextIndex = currentIndex + 1;
@@ -127,28 +157,13 @@ function initQuiz() {
         renderResult();
         showStep(steps.length - 1);
       }
-    });
+      return;
+    }
+
+    if (e.target.closest('[data-quiz-restart]')) {
+      resetQuiz();
+    }
   });
-
-  function renderResult() {
-    var resultStep = quiz.querySelector('.quiz-result');
-    var pick = results.general;
-    if (answers.goal === 'weight') pick = results.weight;
-    if (answers.goal === 'gut') pick = results.gut;
-
-    resultStep.querySelector('h3').textContent = pick.title;
-    resultStep.querySelector('p').textContent = pick.body;
-    var cta = resultStep.querySelector('a.btn');
-    if (cta) cta.setAttribute('href', pick.cta);
-  }
-
-  var restartBtn = quiz.querySelector('[data-quiz-restart]');
-  if (restartBtn) {
-    restartBtn.addEventListener('click', function () {
-      answers = {};
-      showStep(0);
-    });
-  }
 
   showStep(0);
 }
