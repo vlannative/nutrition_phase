@@ -1,0 +1,22 @@
+/* Service page details that sit on top of the shared home/shop theme. */
+.service-list{max-width:1120px}
+.service-list .service-block{border-top:1px solid var(--line);padding:34px 0;gap:clamp(24px,5vw,72px);grid-template-columns:minmax(0,1fr) minmax(220px,.36fr)}
+.service-list .service-block h2{font-size:clamp(1.55rem,2.6vw,2.15rem);margin:0 0 14px}
+.service-list .service-block p{max-width:72ch;color:var(--muted);font-size:13px}
+.service-list .service-block strong,.service-list dt{color:var(--green)}
+.service-list .service-block dl{font-size:13px}
+.service-list .service-panel{background:#e8eddd;border:1px solid #d9e0cf;border-radius:3px;padding:24px;min-width:0}
+.service-list .service-panel .form-note{color:var(--muted);font-size:12px}
+.service-list .service-panel .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);border:1px solid var(--green);color:white;border-radius:3px;padding:12px 18px;font-size:11px}
+.service-list .service-panel .btn:hover{background:#294634}
+#programs{background:#f0efe7}
+#programs .container{max-width:1120px}
+#programs .section-heading{margin-bottom:24px}
+#programs .disclaimer-box{border:1px solid #d5ddc9;border-radius:3px;background:#e5ead9;color:var(--ink);font-size:12px;margin-bottom:14px}
+#programs .service-block{border:1px solid #e1e3d9;background:var(--paper);padding:26px;margin:14px 0;grid-template-columns:minmax(0,1fr) minmax(200px,.32fr);gap:28px}
+#programs .service-block h2{font-size:clamp(1.5rem,2.4vw,2rem)}
+#programs .service-panel{background:#e8eddd}
+.page-hero:not(.editorial-hero){background:#f0efe7;border-bottom:1px solid var(--line)}
+.page-hero:not(.editorial-hero) .container{max-width:1120px}
+.page-hero:not(.editorial-hero) h1{max-width:16ch}
+@media(max-width:780px){.service-list .service-block,#programs .service-block{grid-template-columns:1fr}.service-list .service-panel{max-width:420px}}

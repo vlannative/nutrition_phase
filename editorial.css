@@ -1,0 +1,50 @@
+/* Editorial archive and recipe reading styles, using the shared site palette. */
+.editorial-hero{position:relative;overflow:hidden;background:#e9eddf!important;border:0!important;padding:clamp(58px,9vw,112px) 0!important}
+.editorial-hero:after{content:'✳';position:absolute;right:9%;top:8%;font:clamp(100px,18vw,240px)/1 var(--serif);color:#d3dfbd;transform:rotate(-12deg);pointer-events:none}
+.editorial-hero .container{position:relative;z-index:1;max-width:1120px}
+.editorial-hero .eyebrow{margin-bottom:14px}
+.editorial-hero h1{max-width:11ch;margin:0 0 20px}
+.editorial-hero .lead{max-width:48ch;font-size:15px!important;color:var(--muted)!important}
+.editorial-hero .text-link{display:inline-block;margin-top:12px;color:var(--green)}
+.editorial-archive{padding-top:70px}
+.editorial-archive .container{max-width:1200px}
+.editorial-heading{margin-bottom:28px}
+.editorial-heading .eyebrow{margin:0 0 8px}
+.editorial-heading>p:last-child{font-size:13px;color:var(--muted)}
+#article-grid{gap:18px}
+#article-grid .article-card{min-height:250px;position:relative;display:flex;flex-direction:column;padding:23px;background:#fffdf7;border:1px solid #e3e4dc;border-radius:3px;box-shadow:0 8px 22px #24362c08;transition:transform .2s ease,box-shadow .2s ease}
+#article-grid .article-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px #24362c12}
+#article-grid .article-card .tag{align-self:flex-start;background:#e8eddd;color:#526c43;border-radius:99px;padding:5px 11px;font:700 9px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+#article-grid .article-meta{margin:13px 0 10px;gap:8px;color:#778073;font-size:10px}
+#article-grid .article-meta span+span:before{content:'·';padding-right:8px;color:#9aa48a}
+#article-grid .article-card h3{font:500 22px/1.2 var(--serif);margin:0 0 11px}
+#article-grid .article-card h3 a{color:var(--ink)}
+#article-grid .article-card h3 a:hover{color:#71864e}
+#article-grid .article-card>p{font-size:12px;line-height:1.75;color:var(--muted);margin:0}
+#article-grid .article-cover-thumb{width:calc(100% + 46px);height:185px;object-fit:cover;margin:-23px -23px 18px}
+.editorial-archive .form-note{color:var(--muted);font-size:11px}
+#videos{background:#eeeae0}
+#videos .container{max-width:1200px}
+#videos .section-heading p:last-child{color:var(--muted);font-size:12px}
+.editorial-hero+.editorial-archive+#videos{background:#eeeae0}
+/* Recipe/article reading view */
+body:has(.recipe-columns) main>section:nth-of-type(2) .container,body:has(.article-cover) main>section:nth-of-type(2) .container{max-width:1060px}
+body:has(.recipe-columns) .page-hero,body:has(.article-cover) .page-hero{background:#e9eddf!important;border:0!important;padding:58px 0!important}
+body:has(.recipe-columns) .page-hero .container,body:has(.article-cover) .page-hero .container{max-width:1060px}
+body:has(.recipe-columns) .page-hero h1{max-width:15ch}
+body:has(.recipe-columns) main>section:nth-of-type(2) .grid-2{gap:clamp(30px,6vw,80px)}
+body:has(.recipe-columns) main>section:nth-of-type(2) h2{font-size:clamp(1.5rem,2.5vw,2rem);margin:0 0 12px}
+body:has(.recipe-columns) main>section:nth-of-type(2) h2:not(:first-child){margin-top:30px}
+body:has(.recipe-columns) main>section:nth-of-type(2) ul,body:has(.recipe-columns) main>section:nth-of-type(2) ol{padding-left:1.25rem;color:var(--muted);font-size:13px}
+body:has(.recipe-columns) main>section:nth-of-type(2) li{padding:0 0 8px 4px}
+.nutrition-facts{max-width:none;padding:22px;background:#fffdf7;border:1px solid #dfe2d8;border-radius:3px}
+.nutrition-facts h4{font:500 23px var(--serif);border-bottom:2px solid var(--green);color:var(--ink)}
+.feature-card[style*="margin-top"]{background:#e5ead9!important;padding:22px;border-radius:3px}
+body:has(.recipe-columns) .page-hero .container>p:first-child a{font-size:11px;color:var(--green);font-weight:700}
+.article-cover{width:100%;max-height:520px;object-fit:cover;margin:0 0 32px;border-radius:3px}
+.recipe-columns{gap:clamp(30px,6vw,80px)!important}
+.recipe-columns h2{font-size:clamp(1.5rem,2.5vw,2rem)}
+.recipe-list,.article-content{color:var(--muted);font-size:14px;line-height:1.9}
+.recipe-list{padding-left:1rem}
+@media(max-width:780px){.editorial-hero:after{right:2%;top:15%;font-size:100px}.editorial-hero{padding:58px 0!important}.editorial-archive{padding-top:52px}#article-grid{grid-template-columns:1fr}.recipe-columns{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){#article-grid .article-card{transition:none}#article-grid .article-card:hover{transform:none}}

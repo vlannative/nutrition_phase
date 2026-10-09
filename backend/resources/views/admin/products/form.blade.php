@@ -1,0 +1,15 @@
+@extends('layouts.admin')
+@section('title', $product->exists ? 'Edit product' : 'Add product')
+@section('content')
+<p><a href="{{ route('admin.products.index') }}">← Products</a></p><h1>{{ $product->exists ? 'Edit product' : 'Add a product' }}</h1><p>Customers see active products that have stock available.</p>
+@if($errors->any())<div class="errors" role="alert"><strong>Please check these fields:</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
+<form class="panel" method="post" enctype="multipart/form-data" action="{{ $product->exists ? route('admin.products.update', $product) : route('admin.products.store') }}">@csrf @if($product->exists)@method('PUT')@endif
+<div class="field"><label for="name">Product name</label><input id="name" name="name" maxlength="120" value="{{ old('name', $product->name) }}" required></div>
+<div class="field"><label for="description">Description</label><textarea id="description" name="description" maxlength="2000" required>{{ old('description', $product->description) }}</textarea></div>
+<div class="field"><label for="price_kes">Price (KSh)</label><input id="price_kes" name="price_kes" type="number" min="1" max="10000000" step="1" value="{{ old('price_kes', $product->price_kes) }}" required></div>
+<div class="field"><label for="category">Category</label><select id="category" name="category" required><option value="kombucha" @selected(old('category', $product->category)==='kombucha')>Kombucha</option><option value="fermented" @selected(old('category', $product->category)==='fermented')>Fermented foods</option><option value="body-care" @selected(old('category', $product->category)==='body-care')>Body care</option><option value="supplement" @selected(old('category', $product->category)==='supplement')>Supplements</option><option value="home" @selected(old('category', $product->category)==='home')>Home</option></select></div>
+<div class="field"><label for="is_in_stock">Availability</label><select id="is_in_stock" name="is_in_stock" required><option value="1" @selected(old('is_in_stock', $product->exists ? $product->stock_quantity > 0 : false) == 1)>In stock</option><option value="0" @selected(old('is_in_stock', $product->exists ? $product->stock_quantity > 0 : false) == 0)>Out of stock</option></select></div>
+<div class="field"><label for="image">Product photo</label><input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp">@if($product->image_path)<span class="hint">Current photo: {{ basename($product->image_path) }}</span>@endif<span class="hint">JPG, PNG or WebP, up to 2 MB.</span></div>
+<div class="field"><label><input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->exists ? $product->is_active : true))> Show this item in the shop</label></div>
+<button class="button" type="submit">{{ $product->exists ? 'Save changes' : 'Add product' }}</button> <a class="button subtle" href="{{ route('admin.products.index') }}">Cancel</a></form>
+@endsection

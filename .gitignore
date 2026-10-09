@@ -2,4 +2,10 @@
 Thumbs.db
 node_modules/
 .env
+.env.*
+!.env.example
 *.log
+*.sqlite
+*.sqlite3
+*.db
+/storage
