@@ -31,9 +31,12 @@ The same admin includes `/admin/articles` for creating and editing recipes and b
 ## Before deployment
 
 - Set `APP_ENV=production`, `APP_DEBUG=false`, a real HTTPS `APP_URL`, and `SESSION_SECURE_COOKIE=true` in the deployment environment.
-- Keep `.env`, `storage`, and the database outside the web document root. Point the web server document root at this app's `public` directory.
+- Keep `.env`, `storage`, and the database outside the web document root. Point the web server document root at this app's `public` directory; never point it at the repository root or `backend` directory.
+- Set `CORS_ALLOWED_ORIGINS` to the exact trusted origins (comma-separated if there is more than one), including scheme and port where needed. The default is `APP_URL`; do not use `*`. The site and API are intended to share one origin.
+- Apache deployments use `public/.htaccess` to disable directory indexes, route requests through Laravel, and deny dotfiles and common backup/database files. For Nginx or another server, configure equivalent protections and verify directory listing is off; `.htaccess` is Apache-only.
+- Keep `.git`, editor metadata, database dumps, logs, and backup files out of the deployed document root. The repository's `.git` directory belongs outside `backend/public`.
 - Back up the SQLite database and uploaded product photos, or configure managed database and object storage for production.
-- Restrict administrator access to the owner, keep PHP and dependencies updated, and use a unique password manager generated admin password.
+- Restrict administrator access to the owner, keep PHP and dependencies updated, and use a unique password manager generated admin password. Admin routes require both an authenticated session and the `is_admin` flag; there is no public registration route.
 - For local development, the site HTML, CSS and JavaScript files are linked into `backend/public`. Run `php artisan serve` from `backend`; `http://127.0.0.1:8000/` opens the homepage, `/shop.html` and `/learn.html` use the same-origin API, and `/admin/login` opens the admin. For production, point the web server document root at Laravel's `public` directory and ensure the site files are deployed there so the frontend and API share one origin.
 
 This is a starter catalog and content admin backend. It does not yet handle customer accounts, order records, payments, stock reservations, or delivery pricing.

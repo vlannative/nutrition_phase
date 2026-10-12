@@ -23,7 +23,7 @@
     <nav class="main-nav" aria-label="Main">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Service</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="learn.html" aria-current="page">Blogs/Recipes</a></li>
         <li><a href="shop.html">Shop</a></li>
       </ul>
@@ -34,18 +34,27 @@
 <main>
   <section class="page-hero editorial-hero">
     <div class="container">
-      <p class="eyebrow">The Shemomo journal</p>
-      <h1>Good food, <em>good to know.</em></h1>
-      <p class="lead">A growing collection of nourishing recipes and clear, practical notes on gut health, food and everyday wellbeing.</p>
-      <a class="text-link" href="#article-grid">Explore the journal <span>↓</span></a>
+      <div class="editorial-hero-copy">
+        <p class="eyebrow">The Shemomo journal</p>
+        <h1>Good food, <em>good to know.</em></h1>
+        <p class="lead">A growing collection of nourishing recipes and clear, practical notes on gut health, food and everyday wellbeing.</p>
+        <a class="editorial-hero-link" href="#article-grid">Explore the journal <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="editorial-still-life" aria-hidden="true">
+        <div class="editorial-plate"><span></span><i></i><b></b></div>
+        <div class="editorial-book"><span></span><span></span><span></span><span></span></div>
+        <div class="editorial-herb"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
     </div>
   </section>
 
   <section class="editorial-archive">
     <div class="container">
-      <div class="section-heading editorial-heading">
-        <p class="eyebrow">Read &amp; make</p>
-        <h2>Recipes &amp; <em>stories.</em></h2>
+      <div class="editorial-heading">
+        <div>
+          <p class="eyebrow">Read &amp; make</p>
+          <h2>Recipes &amp; <em>stories.</em></h2>
+        </div>
         <p>Fresh ideas for your table, with thoughtful guidance you can use in real life.</p>
       </div>
       <div class="grid-3" id="article-grid">
@@ -93,44 +102,7 @@
         </article>
 
       </div>
-      <p style="margin-top:var(--space-4);" class="form-note">More recipes and articles are added regularly — this Phase 1 launch starts with one full example (linked above) plus a content pipeline ready to fill in.</p>
-    </div>
-  </section>
-  <section id="videos">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Videos</h2>
-        <p>Prefer to watch? Here are a few samples, with more on the YouTube channel.</p>
-      </div>
-      <div class="video-grid">
-        <div class="video-card">
-          <div class="video-frame" data-video-id="r9hC_e_WvZU">
-            <button type="button" aria-label="Play video: Gut health basics: where to start">
-              <span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#1b2b22" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg></span>
-            </button>
-          </div>
-          <p>Gut health basics: where to start</p>
-        </div>
-        <div class="video-card">
-          <div class="video-frame" data-video-id="AyWCG8U8JoI">
-            <button type="button" aria-label="Play video: A realistic meal-prep week">
-              <span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#1b2b22" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg></span>
-            </button>
-          </div>
-          <p>A realistic meal-prep week</p>
-        </div>
-        <div class="video-card">
-          <div class="video-frame" data-video-id="c2DL4Xu6gz0">
-            <button type="button" aria-label="Play video: Reading a food label in 60 seconds">
-              <span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#1b2b22" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg></span>
-            </button>
-          </div>
-          <p>Reading a food label in 60 seconds</p>
-        </div>
-      </div>
-      <p class="video-more">
-        <a class="btn btn-secondary" href="https://www.youtube.com/@shemomo7" target="_blank" rel="noopener">Watch more on YouTube</a>
-      </p>
+      <p style="margin-top:var(--space-4);" class="form-note">More recipes and practical nutrition guides are on the way.</p>
     </div>
   </section>
 </main>

@@ -1,22 +1,32 @@
 /* Service page details that sit on top of the shared home/shop theme. */
-.service-list{max-width:1120px}
-.service-list .service-block{border-top:1px solid var(--line);padding:34px 0;gap:clamp(24px,5vw,72px);grid-template-columns:minmax(0,1fr) minmax(220px,.36fr)}
-.service-list .service-block h2{font-size:clamp(1.55rem,2.6vw,2.15rem);margin:0 0 14px}
-.service-list .service-block p{max-width:72ch;color:var(--muted);font-size:13px}
-.service-list .service-block strong,.service-list dt{color:var(--green)}
-.service-list .service-block dl{font-size:13px}
-.service-list .service-panel{background:#e8eddd;border:1px solid #d9e0cf;border-radius:3px;padding:24px;min-width:0}
-.service-list .service-panel .form-note{color:var(--muted);font-size:12px}
-.service-list .service-panel .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);border:1px solid var(--green);color:white;border-radius:3px;padding:12px 18px;font-size:11px}
-.service-list .service-panel .btn:hover{background:#294634}
-#programs{background:#f0efe7}
-#programs .container{max-width:1120px}
-#programs .section-heading{margin-bottom:24px}
-#programs .disclaimer-box{border:1px solid #d5ddc9;border-radius:3px;background:#e5ead9;color:var(--ink);font-size:12px;margin-bottom:14px}
-#programs .service-block{border:1px solid #e1e3d9;background:var(--paper);padding:26px;margin:14px 0;grid-template-columns:minmax(0,1fr) minmax(200px,.32fr);gap:28px}
-#programs .service-block h2{font-size:clamp(1.5rem,2.4vw,2rem)}
-#programs .service-panel{background:#e8eddd}
 .page-hero:not(.editorial-hero){background:#f0efe7;border-bottom:1px solid var(--line)}
 .page-hero:not(.editorial-hero) .container{max-width:1120px}
 .page-hero:not(.editorial-hero) h1{max-width:16ch}
-@media(max-width:780px){.service-list .service-block,#programs .service-block{grid-template-columns:1fr}.service-list .service-panel{max-width:420px}}
+.service-hero{padding:62px 0 58px}
+.service-hero .eyebrow{margin-bottom:14px}
+.service-hero h1{font-size:clamp(2.5rem,5vw,4.25rem);line-height:1.08;margin-bottom:18px}
+.service-hero .lead{margin-bottom:25px}
+.service-hero .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);border:1px solid var(--green);color:white;border-radius:3px;padding:13px 20px;font-size:12px;text-decoration:none}
+.service-hero .btn:hover{background:#294634}
+.service-section{padding:64px 0 44px}
+.service-list{max-width:1120px}
+.service-intro{margin:0 0 28px;max-width:680px}
+.service-intro .eyebrow{margin-bottom:12px}
+.service-intro h2{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:10px}
+.service-intro>p:last-child{color:var(--muted);font-size:13px;line-height:1.75}
+.service-list .service-block{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:3px;background:var(--paper);padding:clamp(22px,4vw,38px);margin:14px 0;gap:clamp(24px,5vw,68px);grid-template-columns:minmax(0,1fr) minmax(230px,.36fr);align-items:center}
+.service-list .service-block h2{font-size:clamp(1.45rem,2.5vw,2rem);line-height:1.2;margin:0 0 14px}
+.service-list .service-block p{max-width:72ch;color:var(--muted);font-size:13px;line-height:1.75}
+.service-list .service-block .service-kicker{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#718363;margin:0 0 10px}
+.service-list .service-block strong,.service-list dt{color:var(--green)}
+.service-list .service-block dl{font-size:13px;line-height:1.7;margin-top:22px}
+.service-list .service-block dt{font-weight:700;margin-top:var(--space-1)}
+.service-list .service-block dd{margin:3px 0 0}
+.service-list .service-panel{background:#e8eddd;border:1px solid #d9e0cf;border-radius:3px;padding:22px;min-width:0}
+.service-list .service-panel .service-panel-label{font-weight:700;color:var(--ink);font-size:14px;margin:0 0 5px}
+.service-list .service-panel p:not(.service-panel-label){font-size:12px;margin:0 0 17px}
+.service-list .service-panel .btn{display:flex;align-items:center;justify-content:center;width:100%;background:var(--green);border:1px solid var(--green);color:white;border-radius:3px;padding:12px 14px;font-size:11px;text-align:center;text-decoration:none}
+.service-list .service-panel .btn:hover{background:#294634}
+.service-cta{background:#f0efe7;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.service-cta p{max-width:55ch}
+@media(max-width:780px){.service-hero{padding:44px 0}.service-section{padding:48px 0 30px}.service-list .service-block{grid-template-columns:1fr;gap:20px}.service-list .service-panel{max-width:none}}
